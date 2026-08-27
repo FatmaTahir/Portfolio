@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-[#05050A] text-slate-100 font-sans antialiased selection:bg-purple-500/30 selection:text-purple-200;
+  }
+}
+
+.gradient-text {
+  background-image: linear-gradient(
+    90deg,
+    #8B5CF6,
+    #3B82F6,
+    #EC4899,
+    #8B5CF6
+  );
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradShift 4s ease infinite;
+}
+
+@keyframes gradShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #05050a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e1b4b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #312e81;
+}
+@keyframes gradShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-btn {
+  background-image: linear-gradient(90deg, #8b5cf6, #3b82f6, #ec4899, #8b5cf6);
+  background-size: 200% 200%;
+  animation: gradShift 4s ease infinite;
+}
