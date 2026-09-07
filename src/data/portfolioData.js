@@ -63,7 +63,7 @@ export const PORTFOLIO_DATA = {
       title: "Scriblia",
       subtitle: "Full Stack Stationery E-Commerce Platform",
       description: "Scriblia is a modern full-stack stationery e-commerce platform. It provides customers with an elegant shopping experience while offering administrators complete product and order management. The application features user authentication, shopping cart management, checkout, and a responsive UI.",
-      image: "/src/assets/Scriblia.PNG",
+      image: "/src/assets/Scriblia.png",
       tags: ["React", "Tailwind CSS", "ASP.NET Core Web API", "EF Core", "SQL Server", "JWT"],
       highlights: [
         "Decoupled React frontend with state-driven dynamic routing",
@@ -80,7 +80,7 @@ export const PORTFOLIO_DATA = {
       title: "FURNITUR",
       subtitle: "Furniture E-Commerce Website",
       description: "FURNITUR is a responsive furniture e-commerce website developed from a high-fidelity Figma design. It provides a complete shopping experience with product search, filtering, product details, cart management, and a multi-step checkout process.",
-      image: "/src/assets/FURNITUR.jpg",
+      image: "/src/assets/furnitur.jpg",
       tags: ["HTML", "CSS ", "JS", "localStorage", "Figma"],
       highlights: [
         "Complete shopping flow: filtering, detail views, and interactive cart",
