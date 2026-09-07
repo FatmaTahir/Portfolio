@@ -46,7 +46,7 @@ export const About = () => {
         className="flex flex-col items-center text-center mb-6 sm:mb-8 space-y-2 sm:space-y-3"
       >
         <motion.div 
-          whileHover={{ scale: 1.05 }}
+          
           className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-950/90 border border-purple-500/40 text-purple-300 text-xs font-mono shadow-[0_0_15px_rgba(168,85,247,0.3)] cursor-default"
         >
           <Sparkles className="w-3.5 h-3.5 text-purple-400 animate-pulse" />

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Send, Sparkles, User, Share2 } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Mail, Send, Sparkles, User, Share2, CheckCircle2, AlertCircle, X } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { GlassCard } from '../components/ui/GlassCard';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { FaSquareUpwork } from "react-icons/fa6";
@@ -22,17 +23,35 @@ const LinkedinIcon = ({ className = "w-6 h-6 sm:w-7 sm:h-7" }) => (
 );
 
 export const Contact = () => {
-  const [status, setStatus] = useState('');
+  const formRef = useRef();
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState({ type: '', message: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const subject = encodeURIComponent(formData.get('subject') || 'Portfolio Contact');
-    const body = encodeURIComponent(
-      `Name: ${formData.get('name')}\nEmail: ${formData.get('email')}\n\nMessage:\n${formData.get('message')}`
-    );
-    window.location.href = `mailto:${PORTFOLIO_DATA.personal.email}?subject=${subject}&body=${body}`;
-    setStatus('Mail client opened.');
+    setLoading(true);
+    setStatus({ type: '', message: '' });
+
+    emailjs.sendForm(
+      'service_fser9xn',   
+      'template_6qc7acr',  
+      formRef.current,
+      '8pzLYNI9xaR6SxSww'   
+    )
+    .then(() => {
+      setLoading(false);
+      setStatus({ type: 'success', message: 'Message sent successfully! I will get back to you soon.' });
+      formRef.current.reset();
+
+      setTimeout(() => {
+        setStatus({ type: '', message: '' });
+      }, 5000);
+    })
+    .catch((error) => {
+      setLoading(false);
+      console.error('EmailJS Error:', error);
+      setStatus({ type: 'error', message: 'Failed to send message. Please try again later.' });
+    });
   };
 
   const connectLinks = [
@@ -65,6 +84,50 @@ export const Contact = () => {
   return (
     <section id="contact" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto relative z-10 overflow-hidden">
       
+      {/* Theme-Matched Glassmorphism Toast Notification */}
+     {/* Theme-Matched Glassmorphism Toast Notification */}
+<AnimatePresence>
+  {status.message && (
+    <motion.div
+      initial={{ opacity: 0, y: -20, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -20, scale: 0.95 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+      className="fixed top-20 sm:top-24 left-1/2 -translate-x-1/2 z-[9999] w-[90%] max-w-md pointer-events-auto"
+    >
+      <div className={`flex items-center justify-between p-4 rounded-2xl bg-slate-950/90 backdrop-blur-xl border shadow-[0_0_30px_rgba(0,0,0,0.8)] ${
+        status.type === 'success' 
+          ? 'border-emerald-500/40 shadow-emerald-500/10' 
+          : 'border-rose-500/40 shadow-rose-500/10'
+      }`}>
+        <div className="flex items-center space-x-3">
+          <div className={`p-2 rounded-xl ${
+            status.type === 'success' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400'
+          }`}>
+            {status.type === 'success' ? (
+              <CheckCircle2 className="w-5 h-5 shrink-0" />
+            ) : (
+              <AlertCircle className="w-5 h-5 shrink-0" />
+            )}
+          </div>
+          <div>
+            
+            <p className="text-xs sm:text-sm text-slate-200 font-medium leading-tight">
+              {status.message}
+            </p>
+          </div>
+        </div>
+        <button 
+          onClick={() => setStatus({ type: '', message: '' })}
+          className="text-slate-400 hover:text-slate-100 transition-colors p-1.5 rounded-lg hover:bg-slate-900"
+        >
+          <X className="w-4 h-4" />
+        </button>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
       {/* Header */}
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
@@ -82,7 +145,7 @@ export const Contact = () => {
         </h2>
       </motion.div>
 
-      {/* Main Container - Diagonal Entrance Animation */}
+      {/* Main Container */}
       <motion.div
         initial={{ opacity: 0, x: -40, y: -30 }}
         whileInView={{ opacity: 1, x: 0, y: 0 }}
@@ -92,7 +155,6 @@ export const Contact = () => {
       >
         <GlassCard className="p-5 sm:p-8 md:p-10 bg-slate-950/80 border-purple-500/20 backdrop-blur-xl shadow-2xl relative rounded-2xl sm:rounded-3xl">
           
-          {/* Card Title & Share Icon Header */}
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-2xl sm:text-3xl font-extrabold text-purple-400">
               Contact Me
@@ -104,7 +166,7 @@ export const Contact = () => {
             Have something to discuss? Send me a message and let's talk.
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4 border-b border-slate-800/80 pb-6 sm:pb-8">
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4 border-b border-slate-800/80 pb-6 sm:pb-8">
             
             {/* Input 1: Name */}
             <motion.div
@@ -118,7 +180,7 @@ export const Contact = () => {
               <input
                 required
                 type="text"
-                name="name"
+                name="from_name"
                 className="w-full bg-slate-900/60 border border-slate-800 rounded-xl pl-10 sm:pl-11 pr-4 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
                 placeholder="Your Name"
               />
@@ -136,7 +198,7 @@ export const Contact = () => {
               <input
                 required
                 type="email"
-                name="email"
+                name="from_email"
                 className="w-full bg-slate-900/60 border border-slate-800 rounded-xl pl-10 sm:pl-11 pr-4 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
                 placeholder="Your Email"
               />
@@ -169,21 +231,16 @@ export const Contact = () => {
               className="pt-1 sm:pt-2"
             >
               <motion.button
+                disabled={loading}
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full py-3 sm:py-3.5 rounded-xl bg-purple-500 hover:bg-purple-600 text-white font-medium text-xs sm:text-sm transition-all flex items-center justify-center space-x-2 cursor-pointer shadow-lg shadow-purple-500/20"
+                className="w-full py-3 sm:py-3.5 rounded-xl bg-purple-500 hover:bg-purple-600 disabled:opacity-50 text-white font-medium text-xs sm:text-sm transition-all flex items-center justify-center space-x-2 cursor-pointer shadow-lg shadow-purple-500/20"
               >
                 <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
-                <span>Send Message</span>
+                <span>{loading ? 'Sending...' : 'Send Message'}</span>
               </motion.button>
             </motion.div>
-
-            {status && (
-              <p className="text-xs text-center font-mono text-cyan-400 mt-2">
-                {status}
-              </p>
-            )}
           </form>
 
           {/* Connect With Me - Icon Grid */}

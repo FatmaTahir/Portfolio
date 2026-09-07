@@ -48,7 +48,7 @@ export const Projects = () => {
       >
         <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-purple-900/30 border border-purple-500/30 text-purple-300 text-[11px] sm:text-xs font-mono mb-3 sm:mb-5 backdrop-blur-md">
           <Sparkles className="w-3.5 h-3.5 text-purple-400 shrink-0" />
-          <span>PORTFOLIO SHOWCASE</span>
+          <span>Portfolio Showcase</span>
         </div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-100">
           Featured <span className="text-purple-400 drop-shadow-[0_0_12px_rgba(192,132,252,0.5)]">Projects</span>
