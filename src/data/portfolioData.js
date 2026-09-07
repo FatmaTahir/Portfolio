@@ -57,13 +57,12 @@ export const PORTFOLIO_DATA = {
     }
   ],
   projects: [
-    
     {
       id: "scriblia",
       title: "Scriblia",
       subtitle: "Full Stack Stationery E-Commerce Platform",
       description: "Scriblia is a modern full-stack stationery e-commerce platform. It provides customers with an elegant shopping experience while offering administrators complete product and order management. The application features user authentication, shopping cart management, checkout, and a responsive UI.",
-      image: "/src/assets/Scriblia.png",
+      image: "/projects/Scriblia.png",
       tags: ["React", "Tailwind CSS", "ASP.NET Core Web API", "EF Core", "SQL Server", "JWT"],
       highlights: [
         "Decoupled React frontend with state-driven dynamic routing",
@@ -80,7 +79,7 @@ export const PORTFOLIO_DATA = {
       title: "FURNITUR",
       subtitle: "Furniture E-Commerce Website",
       description: "FURNITUR is a responsive furniture e-commerce website developed from a high-fidelity Figma design. It provides a complete shopping experience with product search, filtering, product details, cart management, and a multi-step checkout process.",
-      image: "/src/assets/furnitur.jpg",
+      image: "/projects/furnitur.jpg",
       tags: ["HTML", "CSS ", "JS", "localStorage", "Figma"],
       highlights: [
         "Complete shopping flow: filtering, detail views, and interactive cart",
@@ -97,7 +96,7 @@ export const PORTFOLIO_DATA = {
       title: "Taskly",
       subtitle: "Modern Task Management Web App",
       description: "A clean, responsive application designed for seamless daily task organization, feature-rich view filtering, and custom theme customization.",
-      image: "/src/assets/Taskly.jpg",
+      image: "/projects/Taskly.jpg",
       tags: ["React", "Bootstrap", "Framer Motion", "LocalStorage API"],
       highlights: [
         "Engineered full client-side CRUD operations, category tagging, and priority-based filtering with zero backend latency.",
@@ -114,7 +113,7 @@ export const PORTFOLIO_DATA = {
       title: "Atmos",
       subtitle: "Live Weather Forecasting Dashboard",
       description: "A sleek, responsive weather forecasting dashboard that provides live weather metrics with high-performance UI updates.",
-      image: "/src/assets/Atmos.jpg",
+      image: "/projects/Atmos.jpg",
       tags: ["React", "Bootstrap", "OpenWeather API", "Framer Motion", "Lucide React"],
       highlights: [
         "Integrated asynchronous RESTful API endpoints to fetch live weather data, temperature metrics, wind speeds, and dynamic conditions.",
@@ -131,7 +130,7 @@ export const PORTFOLIO_DATA = {
       title: "Winter Gallery",
       subtitle: "Responsive Photography Portfolio & Masonry Showcase",
       description: "A winter-themed photography portfolio web application featuring a masonry grid, interactive full-screen lightbox preview, dynamic category filtering, and background slideshows.",
-      image: "/src/assets/WinterGallery.PNG", 
+      image: "/projects/WinterGallery.PNG", 
       tags: ["HTML", "CSS", "JS", "Responsive Design"],
       highlights: [
         "Engineered a Pinterest-style masonry layout with dynamic category filtering and smooth image zoom hover animations.",
@@ -143,7 +142,6 @@ export const PORTFOLIO_DATA = {
       demo: "https://dancing-kashata-e0db94.netlify.app/#home",
       featured: true
     },
-
     {
       id: "moodmemo",
       title: "Mood-Memo",
