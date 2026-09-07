@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Code } from 'lucide-react';
+import { ExternalLink, Code2, Sparkles } from 'lucide-react';
 import { GlassCard } from '../components/ui/GlassCard';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
@@ -11,71 +11,155 @@ const GithubIcon = ({ className = "w-4 h-4" }) => (
   </svg>
 );
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 25, scale: 0.98 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+};
+
 export const Projects = () => {
+  const [imageErrors, setImageErrors] = useState({});
+
+  const handleImageError = (id) => {
+    setImageErrors((prev) => ({ ...prev, [id]: true }));
+  };
+
   return (
-    <section id="projects" className="py-20 px-6 max-w-7xl mx-auto">
-      <div className="text-center max-w-2xl mx-auto mb-16">
-        <h2 className="text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl mb-4">
-          Featured <span className="gradient-text">Projects</span>
+    <section id="projects" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto">
+      {/* Header */}
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-center max-w-2xl mx-auto mb-10 sm:mb-16"
+      >
+        <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-purple-900/30 border border-purple-500/30 text-purple-300 text-[11px] sm:text-xs font-mono mb-3 sm:mb-5 backdrop-blur-md">
+          <Sparkles className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+          <span>PORTFOLIO SHOWCASE</span>
+        </div>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-100">
+          Featured <span className="text-purple-400 drop-shadow-[0_0_12px_rgba(192,132,252,0.5)]">Projects</span>
         </h2>
-        <p className="text-slate-400 text-sm">
-          Production-ready software applications built across full-stack architectures.
-        </p>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 gap-8">
-        {PORTFOLIO_DATA.projects.map((project, index) => (
-          <GlassCard key={project.id} className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-            <div className="lg:col-span-7 space-y-4">
-              <div>
-                <span className="text-xs font-mono text-purple-400 uppercase tracking-widest">{project.subtitle}</span>
-                <h3 className="text-2xl font-bold text-slate-100 mt-1">{project.title}</h3>
-              </div>
+      {/* 3-Column Responsive Grid */}
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+      >
+        {PORTFOLIO_DATA.projects.map((project) => {
+          const hasValidImage = project.image && !imageErrors[project.id];
 
-              <p className="text-slate-300 text-sm leading-relaxed">{project.description}</p>
+          return (
+            <motion.div
+              key={project.id}
+              variants={cardVariants}
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 250, damping: 20 }}
+              className="flex"
+            >
+              <GlassCard className="group relative overflow-hidden flex flex-col justify-between w-full border border-purple-500/20 bg-slate-950/60 backdrop-blur-xl hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-950/40 transition-all duration-300 p-0 rounded-2xl">
+                
+                {/* TOP BANNER: Responsive Image Container */}
+                <div className="relative w-full h-40 sm:h-48 bg-gradient-to-b from-purple-950/30 via-slate-900/50 to-slate-950/80 border-b border-purple-500/20 flex items-center justify-center p-0 overflow-hidden">
+                  
+                  {/* Visual Background Glow */}
+                  <div className="absolute inset-0 bg-radial-gradient from-purple-600/10 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity z-10 pointer-events-none" />
 
-              <div className="space-y-2">
-                <p className="text-xs font-semibold text-slate-400">Key Deliverables:</p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
-                  {project.highlights.map((h, idx) => (
-                    <li key={idx} className="flex items-start space-x-2">
-                      <span className="text-purple-400 font-bold">•</span>
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  {hasValidImage ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      onError={() => handleImageError(project.id)}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" 
+                    />
+                  ) : (
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 3 }}
+                      className="p-3.5 sm:p-4 rounded-2xl bg-purple-600/20 border border-purple-400/30 text-purple-300 shadow-lg shadow-purple-900/20 z-10"
+                    >
+                      <Code2 className="w-6 h-6 sm:w-8 sm:h-8" />
+                    </motion.div>
+                  )}
 
-              <div className="flex flex-wrap gap-2 pt-2">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-purple-950/40 border border-purple-500/20 text-purple-300">
-                    {tag}
-                  </span>
-                ))}
-              </div>
+                  {/* TOP RIGHT ACTION BUTTONS */}
+                  <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-20 flex items-center space-x-1.5 sm:space-x-2">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="View Repository"
+                        className="p-1.5 sm:p-2 rounded-xl bg-slate-900/80 backdrop-blur-md border border-purple-500/30 hover:border-purple-400 text-slate-200 hover:text-purple-300 transition-all shadow-md active:scale-95"
+                      >
+                        <GithubIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      </a>
+                    )}
 
-              <div className="pt-4 flex items-center space-x-4">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 text-xs font-medium px-4 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:border-purple-500 text-slate-200 transition-colors"
-                >
-                  <GithubIcon className="w-4 h-4" />
-                  <span>View Repository</span>
-                </a>
-              </div>
-            </div>
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Live Preview"
+                        className="p-1.5 sm:p-2 rounded-xl bg-purple-600 border border-purple-400/40 hover:bg-purple-500 text-white transition-all shadow-md shadow-purple-950/50 active:scale-95"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
 
-            {/* Visual Indicator Box */}
-            <div className="lg:col-span-5 h-full min-h-[200px] rounded-xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 p-6 flex flex-col justify-center items-center text-center">
-              <Code className="w-12 h-12 text-purple-400 mb-3 opacity-80" />
-              <span className="text-sm font-semibold text-slate-200">{project.title} Architecture</span>
-              <span className="text-xs text-slate-500 mt-1 font-mono">Full Stack Repository Verified</span>
-            </div>
-          </GlassCard>
-        ))}
-      </div>
+                {/* BOTTOM CONTENT */}
+                <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between space-y-3 sm:space-y-4">
+                  <div className="space-y-1.5 sm:space-y-2">
+                    {project.subtitle && (
+                      <span className="text-[10px] sm:text-[11px] font-mono text-purple-400 tracking-widest uppercase block">
+                        {project.subtitle}
+                      </span>
+                    )}
+                    <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Tag Pills */}
+                  <div className="flex flex-wrap gap-1 sm:gap-1.5 pt-1 sm:pt-2">
+                    {project.tags.map((tag) => (
+                      <span 
+                        key={tag} 
+                        className="text-[9px] sm:text-[10px] font-mono px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-purple-900/30 border border-purple-500/30 text-purple-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+              </GlassCard>
+            </motion.div>
+          );
+        })}
+      </motion.div>
     </section>
   );
 };

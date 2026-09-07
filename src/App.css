@@ -94,6 +94,9 @@
     text-align: center;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
 
 #docs {
   border-right: 1px solid var(--border);
