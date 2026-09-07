@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Lenis from '@studio-freight/lenis';
+import Lenis from 'lenis';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
 import { Navbar } from './components/layouts/Navbar.jsx';
@@ -20,7 +20,32 @@ export default function App() {
     damping: 30,
     restDelta: 0.001
   });
+  useEffect(() => {
+    // 1. Create an off-screen canvas
+    const canvas = document.createElement('canvas');
+    canvas.width = 64;
+    canvas.height = 64;
+    const ctx = canvas.getContext('2d');
 
+    ctx.fillStyle = '#0f0716'; 
+    ctx.beginPath();
+    ctx.roundRect(0, 0, 64, 64, 16);
+    ctx.fill();
+
+    ctx.fillStyle = '#c084fc'; 
+    ctx.font = '900 32px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('FT', 32, 34);
+
+    let link = document.querySelector("link[rel*='icon']");
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.head.appendChild(link);
+    }
+    link.href = canvas.toDataURL('image/png');
+  }, []);
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
