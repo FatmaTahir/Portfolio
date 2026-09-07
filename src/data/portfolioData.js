@@ -96,7 +96,7 @@ export const PORTFOLIO_DATA = {
       title: "Taskly",
       subtitle: "Modern Task Management Web App",
       description: "A clean, responsive application designed for seamless daily task organization, feature-rich view filtering, and custom theme customization.",
-      image: "/projects/Taskly.jpg",
+      image: "/projects/Taskly.PNG",
       tags: ["React", "Bootstrap", "Framer Motion", "LocalStorage API"],
       highlights: [
         "Engineered full client-side CRUD operations, category tagging, and priority-based filtering with zero backend latency.",
