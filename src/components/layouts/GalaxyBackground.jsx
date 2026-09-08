@@ -11,14 +11,12 @@ export const GalaxyBackground = () => {
     let animationFrameId;
     let stars = [];
 
-    // Scale star count based on screen size for ideal density on mobile vs desktop
     const getStarCount = () => {
       const area = window.innerWidth * window.innerHeight;
-      return Math.floor(area / 35000); // Dynamic density calculation
+      return Math.floor(area / 35000);
     };
 
     const resizeCanvas = () => {
-      // Use Device Pixel Ratio for crisp rendering on high-DPI (Retina) mobile screens
       const dpr = window.devicePixelRatio || 1;
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
@@ -28,7 +26,7 @@ export const GalaxyBackground = () => {
 
     const initStars = () => {
       stars = [];
-      const numStars = Math.max(15, getStarCount()); // Floor at minimum 15 stars
+      const numStars = Math.max(15, getStarCount());
       
       for (let i = 0; i < numStars; i++) {
         stars.push({
@@ -81,11 +79,11 @@ export const GalaxyBackground = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#0a0a0c]">
-      {/* Responsive Ambient Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-[600px] h-[85vw] max-h-[600px] bg-red-900/15 sm:bg-red-900/10 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none" />
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#030014]">
+      {/* Restored Purple/Indigo Ambient Galaxy Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-[600px] h-[85vw] max-h-[600px] bg-purple-900/20 sm:bg-purple-900/15 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none" />
 
-      {/* Responsive Canvas */}
+      {/* Canvas */}
       <canvas ref={canvasRef} className="block w-full h-full" />
     </div>
   );
