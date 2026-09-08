@@ -1,90 +1,83 @@
 import React, { useEffect, useRef } from 'react';
 
 export const GalaxyBackground = () => {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef(null);
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
 
-    let animationFrameId;
-    let stars = [];
+    let animationFrameId;
+    let stars = [];
+    const numStars = 20; // Sparse star density matching the reference image
 
-    const getStarCount = () => {
-      const area = window.innerWidth * window.innerHeight;
-      return Math.floor(area / 35000);
-    };
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
 
-    const resizeCanvas = () => {
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
-      
-      ctx.scale(dpr, dpr);
-    };
+    // Initialize star positions and speeds
+    const initStars = () => {
+      stars = [];
+      for (let i = 0; i < numStars; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.2 + 0.6, // Minimal dot size
+          color: '#ffffff', // Pure white
+          opacity: Math.random() * 0.7 + 0.3,
+          speed: Math.random() * 0.3 + 0.1, // Subtle upward floating speed
+        });
+      }
+    };
 
-    const initStars = () => {
-      stars = [];
-      const numStars = Math.max(15, getStarCount());
-      
-      for (let i = 0; i < numStars; i++) {
-        stars.push({
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
-          radius: Math.random() * 1.2 + 0.6,
-          color: '#ffffff',
-          opacity: Math.random() * 0.7 + 0.3,
-          speed: Math.random() * 0.3 + 0.1,
-        });
-      }
-    };
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    const animate = () => {
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      stars.forEach((star) => {
+        // Draw Dot
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = star.color;
+        ctx.globalAlpha = star.opacity;
+        ctx.fill();
 
-      stars.forEach((star) => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = star.color;
-        ctx.globalAlpha = star.opacity;
-        ctx.fill();
+        // Move upward
+        star.y -= star.speed;
 
-        star.y -= star.speed;
+        // Reset to bottom when passing top boundary
+        if (star.y < 0) {
+          star.y = canvas.height;
+          star.x = Math.random() * canvas.width;
+        }
+      });
 
-        if (star.y < 0) {
-          star.y = window.innerHeight;
-          star.x = Math.random() * window.innerWidth;
-        }
-      });
+      animationFrameId = requestAnimationFrame(animate);
+    };
 
-      animationFrameId = requestAnimationFrame(animate);
-    };
+    resizeCanvas();
+    initStars();
+    animate();
 
-    resizeCanvas();
-    initStars();
-    animate();
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initStars();
+    });
 
-    const handleResize = () => {
-      resizeCanvas();
-      initStars();
-    };
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('resize', resizeCanvas);
+    };
+  }, []);
 
-    window.addEventListener('resize', handleResize);
+  return (
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#0a0a0c]">
+      {/* Soft Ambient Radial Glow Behind Center Content */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-900/10 rounded-full blur-[120px] pointer-events-none" />
 
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#030014]">
-      {/* Restored Purple/Indigo Ambient Galaxy Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-[600px] h-[85vw] max-h-[600px] bg-purple-900/20 sm:bg-purple-900/15 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none" />
-
-      {/* Canvas */}
-      <canvas ref={canvasRef} className="block w-full h-full" />
-    </div>
-  );
+      {/* Canvas for floating stars */}
+      <canvas ref={canvasRef} className="block w-full h-full" />
+    </div>
+  );
 };
