@@ -71,7 +71,7 @@ export const PORTFOLIO_DATA = {
         "Complete transaction-driven cart, order, and product processing"
       ],
       github: "https://github.com/FatmaTahir/Scriblia",
-      demo: "https://scriblia-stationery.vercel.app/",
+      demo: null,
       featured: true
     },
     {
@@ -88,7 +88,7 @@ export const PORTFOLIO_DATA = {
         "Fully responsive dynamic layouts built with pure standard web tech"
       ],
       github: "https://github.com/FatmaTahir/Furniture-Ecommerce-Site",
-      demo: "https://furniture-ecommerce-site.vercel.app/",
+      demo: null,
       featured: true
     },
     {
@@ -105,7 +105,7 @@ export const PORTFOLIO_DATA = {
         "Crafted polished UI interactions, slide-over drawer details, and staggered entrance list animations via Framer Motion."
       ],
       github: "https://github.com/FatmaTahir/Taskly", 
-      demo: "https://taskly-web-three.vercel.app/", 
+      demo: null, 
       featured: true
     },
     {
@@ -122,7 +122,7 @@ export const PORTFOLIO_DATA = {
         "Implemented animated micro-interactions and smooth page load transitions using Framer Motion."
       ],
       github: "https://github.com/FatmaTahir/Atmos-Weather-App", 
-      demo: "https://atmosweather-beta.vercel.app/", 
+      demo: null, 
       featured: true
     },
     {
@@ -139,7 +139,7 @@ export const PORTFOLIO_DATA = {
         "Implemented custom touch-ready mobile navigation, smooth scrolling, and animated contact interfaces without external UI dependencies."
       ],
       github: "https://github.com/FatmaTahir/Winter-Gallery",
-      demo: "https://dancing-kashata-e0db94.netlify.app/#home",
+      demo: null,
       featured: true
     },
     {
