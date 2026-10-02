@@ -156,7 +156,7 @@ export const PORTFOLIO_DATA = {
         "Built a vibrant, fully responsive user interface utilizing Tailwind CSS and React Icons for enhanced visual engagement."
       ],
       github: "https://github.com/FatmaTahir/MoodMemo",
-      demo: null,
+      demo: "https://mood-memo-peach.vercel.app",
       featured: true
     },
     {
