@@ -147,7 +147,7 @@ export const PORTFOLIO_DATA = {
       title: "Mood-Memo",
       subtitle: "Interactive Mood Tracking Web Application",
       description: "A modern note-taking and mindfulness app designed to let users track daily feelings with visual emoji indicators, attach daily thoughts, and manage journal entries.",
-      image: null,
+      image: "/projects/moodmemo.png",           
       tags: ["React", "Tailwind CSS", "React Router", "React Icons"],
       highlights: [
         "Designed an intuitive mood selection workflow pairing custom emoji metrics with text entry capabilities.",
