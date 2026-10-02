@@ -125,23 +125,7 @@ export const PORTFOLIO_DATA = {
       demo: null, 
       featured: true
     },
-    {
-      id: "winter-gallery",
-      title: "Winter Gallery",
-      subtitle: "Responsive Photography Portfolio & Masonry Showcase",
-      description: "A winter-themed photography portfolio web application featuring a masonry grid, interactive full-screen lightbox preview, dynamic category filtering, and background slideshows.",
-      image: "/projects/WinterGallery.PNG", 
-      tags: ["HTML", "CSS", "JS", "Responsive Design"],
-      highlights: [
-        "Engineered a Pinterest-style masonry layout with dynamic category filtering and smooth image zoom hover animations.",
-        "Built a full-screen modal Lightbox with next/previous image navigation, image captions, and click-outside closure.",
-        "Created an automatic hero section background slider with soft visual overlays to maximize text legibility.",
-        "Implemented custom touch-ready mobile navigation, smooth scrolling, and animated contact interfaces without external UI dependencies."
-      ],
-      github: "https://github.com/FatmaTahir/Winter-Gallery",
-      demo: null,
-      featured: true
-    },
+  
     {
       id: "moodmemo",
       title: "Mood-Memo",
@@ -157,6 +141,23 @@ export const PORTFOLIO_DATA = {
       ],
       github: "https://github.com/FatmaTahir/MoodMemo",
       demo: "https://mood-memo-peach.vercel.app",
+      featured: true
+    },
+    {
+      id: "winter-gallery",
+      title: "Winter Gallery",
+      subtitle: "Responsive Photography Portfolio & Masonry Showcase",
+      description: "A winter-themed photography portfolio web application featuring a masonry grid, interactive full-screen lightbox preview, dynamic category filtering, and background slideshows.",
+      image: "/projects/WinterGallery.PNG", 
+      tags: ["HTML", "CSS", "JS", "Responsive Design"],
+      highlights: [
+        "Engineered a Pinterest-style masonry layout with dynamic category filtering and smooth image zoom hover animations.",
+        "Built a full-screen modal Lightbox with next/previous image navigation, image captions, and click-outside closure.",
+        "Created an automatic hero section background slider with soft visual overlays to maximize text legibility.",
+        "Implemented custom touch-ready mobile navigation, smooth scrolling, and animated contact interfaces without external UI dependencies."
+      ],
+      github: "https://github.com/FatmaTahir/Winter-Gallery",
+      demo: null,
       featured: true
     },
     {
