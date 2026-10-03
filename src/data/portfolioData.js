@@ -74,41 +74,6 @@ export const PORTFOLIO_DATA = {
       demo: "https://scriblia-stationery.vercel.app/",
       featured: true
     },
-    
-    {
-      id: "libsys-pro",
-      title: "Libsys Pro",
-      subtitle: "Library Management System & REST API",
-      description: "Libsys Pro is a full-stack library management system engineered with ASP.NET Core Clean Architecture and modern React. The application provides complete book inventory tracking, member registration, and borrowing transaction workflows, deployed using Docker containers on Railway and Vercel.",
-      image: "/projects/libsys.png",
-      tags: ["React", "Tailwind CSS", ".NET 8 Web API", "Clean Architecture", "Docker", "Railway", "Vercel"],
-      highlights: [
-        "Architected backend using ASP.NET Core Clean Architecture (Domain, Application, Infrastructure, API)",
-        "Containerized .NET 8 Web API with Docker and deployed to Railway with dynamic $PORT binding",
-        "Decoupled React frontend deployed on Vercel with central Axios instance handling production environment endpoints",
-        "Engineered complete CRUD operations for books, member accounts, and borrowing event processing"
-      ],
-      github: "https://github.com/FatmaTahir/Library-Management-System",
-      demo: "https://lib-sys-pro.vercel.app/",
-      featured: true
-    },
-    {
-      id: "taskly",
-      title: "Taskly",
-      subtitle: "Modern Task Management Web App",
-      description: "A clean, responsive application designed for seamless daily task organization, feature-rich view filtering, and custom theme customization.",
-      image: "/projects/Taskly.PNG",
-      tags: ["React", "Bootstrap", "Framer Motion", "LocalStorage API"],
-      highlights: [
-        "Engineered full client-side CRUD operations, category tagging, and priority-based filtering with zero backend latency.",
-        "Implemented complete dynamic view routing for Today, Upcoming, and Completed tasks paired with live navbar status badges.",
-        "Integrated persistent dark/light theme switching and offline data state management using browser LocalStorage.",
-        "Crafted polished UI interactions, slide-over drawer details, and staggered entrance list animations via Framer Motion."
-      ],
-      github: "https://github.com/FatmaTahir/Taskly", 
-      demo: "https://taskly-web-three.vercel.app/", 
-      featured: true
-    },
     {
       id: "atmos",
       title: "Atmos",
@@ -143,7 +108,24 @@ export const PORTFOLIO_DATA = {
       demo: null,
       featured: true
     },
-    {
+        {
+      id: "libsys-pro",
+      title: "Libsys Pro",
+      subtitle: "Library Management System & REST API",
+      description: "Libsys Pro is a full-stack library management system engineered with ASP.NET Core Clean Architecture and modern React. The application provides complete book inventory tracking, member registration, and borrowing transaction workflows, deployed using Docker containers on Railway and Vercel.",
+      image: "/projects/libsys.png",
+      tags: ["React", "Tailwind CSS", ".NET 8 Web API", "Clean Architecture", "Docker", "Railway", "Vercel"],
+      highlights: [
+        "Architected backend using ASP.NET Core Clean Architecture (Domain, Application, Infrastructure, API)",
+        "Containerized .NET 8 Web API with Docker and deployed to Railway with dynamic $PORT binding",
+        "Decoupled React frontend deployed on Vercel with central Axios instance handling production environment endpoints",
+        "Engineered complete CRUD operations for books, member accounts, and borrowing event processing"
+      ],
+      github: "https://github.com/FatmaTahir/Library-Management-System",
+      demo: "https://lib-sys-pro.vercel.app/",
+      featured: true
+    },
+ {
       id: "moodmemo",
       title: "Mood-Memo",
       subtitle: "Interactive Mood Tracking Web Application",
@@ -160,6 +142,24 @@ export const PORTFOLIO_DATA = {
       demo: "https://mood-memo-peach.vercel.app",
       featured: true
     },
+    {
+      id: "taskly",
+      title: "Taskly",
+      subtitle: "Modern Task Management Web App",
+      description: "A clean, responsive application designed for seamless daily task organization, feature-rich view filtering, and custom theme customization.",
+      image: "/projects/Taskly.PNG",
+      tags: ["React", "Bootstrap", "Framer Motion", "LocalStorage API"],
+      highlights: [
+        "Engineered full client-side CRUD operations, category tagging, and priority-based filtering with zero backend latency.",
+        "Implemented complete dynamic view routing for Today, Upcoming, and Completed tasks paired with live navbar status badges.",
+        "Integrated persistent dark/light theme switching and offline data state management using browser LocalStorage.",
+        "Crafted polished UI interactions, slide-over drawer details, and staggered entrance list animations via Framer Motion."
+      ],
+      github: "https://github.com/FatmaTahir/Taskly", 
+      demo: "https://taskly-web-three.vercel.app/", 
+      featured: true
+    },
+   
     {
       id: "winter-gallery",
       title: "Winter Gallery",
