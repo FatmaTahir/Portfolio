@@ -74,23 +74,7 @@ export const PORTFOLIO_DATA = {
       demo: "https://scriblia-stationery.vercel.app/",
       featured: true
     },
-    {
-      id: "furnitur",
-      title: "FURNITUR",
-      subtitle: "Furniture E-Commerce Website",
-      description: "FURNITUR is a responsive furniture e-commerce website developed from a high-fidelity Figma design. It provides a complete shopping experience with product search, filtering, product details, cart management, and a multi-step checkout process.",
-      image: "/projects/furnitur.jpg",
-      tags: ["HTML", "CSS ", "JS", "localStorage", "Figma"],
-      highlights: [
-        "Complete shopping flow: filtering, detail views, and interactive cart",
-        "Guided multi-step checkout workflow with client validation",
-        "State persistence implemented via custom localStorage handling",
-        "Fully responsive dynamic layouts built with pure standard web tech"
-      ],
-      github: "https://github.com/FatmaTahir/Furniture-Ecommerce-Site",
-      demo: null,
-      featured: true
-    },
+    
     {
       id: "libsys-pro",
       title: "Libsys Pro",
@@ -140,6 +124,23 @@ export const PORTFOLIO_DATA = {
       ],
       github: "https://github.com/FatmaTahir/Atmos-Weather-App", 
       demo: "https://atmosweather-beta.vercel.app/", 
+      featured: true
+    },
+    {
+      id: "furnitur",
+      title: "FURNITUR",
+      subtitle: "Furniture E-Commerce Website",
+      description: "FURNITUR is a responsive furniture e-commerce website developed from a high-fidelity Figma design. It provides a complete shopping experience with product search, filtering, product details, cart management, and a multi-step checkout process.",
+      image: "/projects/furnitur.jpg",
+      tags: ["HTML", "CSS ", "JS", "localStorage", "Figma"],
+      highlights: [
+        "Complete shopping flow: filtering, detail views, and interactive cart",
+        "Guided multi-step checkout workflow with client validation",
+        "State persistence implemented via custom localStorage handling",
+        "Fully responsive dynamic layouts built with pure standard web tech"
+      ],
+      github: "https://github.com/FatmaTahir/Furniture-Ecommerce-Site",
+      demo: null,
       featured: true
     },
     {
