@@ -111,7 +111,7 @@ export const PORTFOLIO_DATA = {
         {
       id: "libsys-pro",
       title: "Libsys Pro",
-      subtitle: "Library Management System & REST API",
+      subtitle: "Full-Stack Library Management System ",
       description: "Libsys Pro is a full-stack library management system engineered with ASP.NET Core Clean Architecture and modern React. The application provides complete book inventory tracking, member registration, and borrowing transaction workflows, deployed using Docker containers on Railway and Vercel.",
       image: "/projects/libsys.png",
       tags: ["React", "Tailwind CSS", ".NET 8 Web API", "Clean Architecture", "Docker", "Railway", "Vercel"],
