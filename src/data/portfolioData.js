@@ -11,7 +11,7 @@ export const PORTFOLIO_DATA = {
     email: "fatimahtahir452@gmail.com",
     github: "https://github.com/FatmaTahir",
     linkedin: "https://www.linkedin.com/in/fatima-tahir-a77182336/",
-    upwork:"https://www.upwork.com/freelancers/~012f23979e2d566d86",
+    upwork: "https://www.upwork.com/freelancers/~012f23979e2d566d86",
     resumePath: "/Fatima_Tahir_Resume.pdf"
   },
   skills: [
@@ -71,7 +71,7 @@ export const PORTFOLIO_DATA = {
         "Complete transaction-driven cart, order, and product processing"
       ],
       github: "https://github.com/FatmaTahir/Scriblia",
-      demo: null,
+      demo: "https://scriblia-stationery.vercel.app/",
       featured: true
     },
     {
@@ -92,6 +92,23 @@ export const PORTFOLIO_DATA = {
       featured: true
     },
     {
+      id: "libsys-pro",
+      title: "Libsys Pro",
+      subtitle: "Library Management System & REST API",
+      description: "Libsys Pro is a full-stack library management system engineered with ASP.NET Core Clean Architecture and modern React. The application provides complete book inventory tracking, member registration, and borrowing transaction workflows, deployed using Docker containers on Railway and Vercel.",
+      image: "/projects/libsys.png",
+      tags: ["React", "Tailwind CSS", ".NET 8 Web API", "Clean Architecture", "Docker", "Railway", "Vercel"],
+      highlights: [
+        "Architected backend using ASP.NET Core Clean Architecture (Domain, Application, Infrastructure, API)",
+        "Containerized .NET 8 Web API with Docker and deployed to Railway with dynamic $PORT binding",
+        "Decoupled React frontend deployed on Vercel with central Axios instance handling production environment endpoints",
+        "Engineered complete CRUD operations for books, member accounts, and borrowing event processing"
+      ],
+      github: "https://github.com/FatmaTahir/Library-Management-System",
+      demo: "https://lib-sys-pro.vercel.app/",
+      featured: true
+    },
+    {
       id: "taskly",
       title: "Taskly",
       subtitle: "Modern Task Management Web App",
@@ -105,7 +122,7 @@ export const PORTFOLIO_DATA = {
         "Crafted polished UI interactions, slide-over drawer details, and staggered entrance list animations via Framer Motion."
       ],
       github: "https://github.com/FatmaTahir/Taskly", 
-      demo: null, 
+      demo: "https://taskly-web-three.vercel.app/", 
       featured: true
     },
     {
@@ -122,10 +139,9 @@ export const PORTFOLIO_DATA = {
         "Implemented animated micro-interactions and smooth page load transitions using Framer Motion."
       ],
       github: "https://github.com/FatmaTahir/Atmos-Weather-App", 
-      demo: null, 
+      demo: "https://atmosweather-beta.vercel.app/", 
       featured: true
     },
-  
     {
       id: "moodmemo",
       title: "Mood-Memo",
