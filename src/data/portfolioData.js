@@ -62,7 +62,7 @@ export const PORTFOLIO_DATA = {
       title: "MediBlood-Connect",
       subtitle: "Real-Time Blood Donation Management Platform",
       description: "Medi Blood Connect is a smart blood donation management platform built to connect donors, patients, hospitals, and blood banks efficiently. It helps users find available blood donors based on blood group type, manage emergency requests, and streamline the blood donation process using modern web technologies.",
-      image: "/projects/mediblood.png", 
+      image: "/projects/blooddb.png", 
       tags: ["ASP.NET MVC", "C#", "Bootstrap", "SignalR", "SQL Server"],
       github: "https://github.com/FatmaTahir/MediBlood-Connect",
       demo: "https://medibloodconnect-acafg2hrgjakbsfz.swedencentral-01.azurewebsites.net",
