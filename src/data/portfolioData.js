@@ -57,17 +57,6 @@ export const PORTFOLIO_DATA = {
     }
   ],
   projects: [
-     {
-      id: "mediblood-connect",
-      title: "MediBlood-Connect",
-      subtitle: "Real-Time Blood Donation Management Platform",
-      description: "Medi Blood Connect is a smart blood donation management platform built to connect donors, patients, hospitals, and blood banks efficiently. It helps users find available blood donors based on blood group type, manage emergency requests, and streamline the blood donation process using modern web technologies.",
-      image: "/projects/blooddb.png", 
-      tags: ["ASP.NET MVC", "C#", "Bootstrap", "SignalR", "SQL Server"],
-      github: "https://github.com/FatmaTahir/MediBlood-Connect",
-      demo: "https://medibloodconnect-acafg2hrgjakbsfz.swedencentral-01.azurewebsites.net",
-      featured: true
-    },
     {
       id: "scriblia",
       title: "Scriblia",
@@ -83,6 +72,17 @@ export const PORTFOLIO_DATA = {
       ],
       github: "https://github.com/FatmaTahir/Scriblia",
       demo: "https://scriblia-stationery.vercel.app/",
+      featured: true
+    },
+     {
+      id: "mediblood-connect",
+      title: "MediBlood-Connect",
+      subtitle: "Real-Time Blood Donation Management Platform",
+      description: "Medi Blood Connect is a smart blood donation management platform built to connect donors, patients, hospitals, and blood banks efficiently. It helps users find available blood donors based on blood group type, manage emergency requests, and streamline the blood donation process using modern web technologies.",
+      image: "/projects/blooddb.png", 
+      tags: ["ASP.NET MVC", "C#", "Bootstrap", "SignalR", "SQL Server"],
+      github: "https://github.com/FatmaTahir/MediBlood-Connect",
+      demo: "https://medibloodconnect-acafg2hrgjakbsfz.swedencentral-01.azurewebsites.net",
       featured: true
     },
     {
@@ -124,7 +124,7 @@ export const PORTFOLIO_DATA = {
       title: "Libsys Pro",
       subtitle: "Full-Stack Library Management System ",
       description: "Libsys Pro is a full-stack library management system engineered with ASP.NET Core Clean Architecture and modern React. The application provides complete book inventory tracking, member registration, and borrowing transaction workflows, deployed using Docker containers on Railway and Vercel.",
-      image: "/projects/libsys.png",
+      image: "/projects/libsis.png",
       tags: ["React", "Tailwind CSS", ".NET 8 Web API", "Clean Architecture", "Docker", "Railway", "Vercel"],
       highlights: [
         "Architected backend using ASP.NET Core Clean Architecture (Domain, Application, Infrastructure, API)",
@@ -134,23 +134,6 @@ export const PORTFOLIO_DATA = {
       ],
       github: "https://github.com/FatmaTahir/Library-Management-System",
       demo: "https://lib-sys-pro.vercel.app/",
-      featured: true
-    },
- {
-      id: "moodmemo",
-      title: "Mood-Memo",
-      subtitle: "Interactive Mood Tracking Web Application",
-      description: "A modern note-taking and mindfulness app designed to let users track daily feelings with visual emoji indicators, attach daily thoughts, and manage journal entries.",
-      image: "/projects/moodmemo.png",           
-      tags: ["React", "Tailwind CSS", "React Router", "React Icons"],
-      highlights: [
-        "Designed an intuitive mood selection workflow pairing custom emoji metrics with text entry capabilities.",
-        "Implemented client-side routing via React Router DOM to manage multi-page navigation between Home and Saved Notes pages.",
-        "Engineered real-time entry manipulation featuring automated date stamping and single-click note deletion.",
-        "Built a vibrant, fully responsive user interface utilizing Tailwind CSS and React Icons for enhanced visual engagement."
-      ],
-      github: "https://github.com/FatmaTahir/MoodMemo",
-      demo: "https://mood-memo-peach.vercel.app",
       featured: true
     },
     {
@@ -170,7 +153,24 @@ export const PORTFOLIO_DATA = {
       demo: "https://taskly-web-three.vercel.app/", 
       featured: true
     },
-   
+     {
+      id: "moodmemo",
+      title: "Mood-Memo",
+      subtitle: "Interactive Mood Tracking Web Application",
+      description: "A modern note-taking and mindfulness app designed to let users track daily feelings with visual emoji indicators, attach daily thoughts, and manage journal entries.",
+      image: "/projects/moodmemo.png",           
+      tags: ["React", "Tailwind CSS", "React Router", "React Icons"],
+      highlights: [
+        "Designed an intuitive mood selection workflow pairing custom emoji metrics with text entry capabilities.",
+        "Implemented client-side routing via React Router DOM to manage multi-page navigation between Home and Saved Notes pages.",
+        "Engineered real-time entry manipulation featuring automated date stamping and single-click note deletion.",
+        "Built a vibrant, fully responsive user interface utilizing Tailwind CSS and React Icons for enhanced visual engagement."
+      ],
+      github: "https://github.com/FatmaTahir/MoodMemo",
+      demo: "https://mood-memo-peach.vercel.app",
+      featured: true
+    }
+   ,
     {
       id: "winter-gallery",
       title: "Winter Gallery",
