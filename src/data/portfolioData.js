@@ -34,7 +34,7 @@ export const PORTFOLIO_DATA = {
   ],
   experience: [
     {
-      role: "Full Stack Developer Intern",
+      role: "Web Developer Intern",
       company: "FentixTech",
       period: "June 2026 – August 2026",
       description: "Transformed design concepts into production-ready web applications from scratch.",
