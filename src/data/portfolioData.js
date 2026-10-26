@@ -71,7 +71,7 @@ export const PORTFOLIO_DATA = {
         "Complete transaction-driven cart, order, and product processing"
       ],
       github: "https://github.com/FatmaTahir/Scriblia",
-      demo: "https://scriblia-stationery.vercel.app/",
+      demo: null ,
       featured: true
     },
      {
@@ -116,7 +116,7 @@ export const PORTFOLIO_DATA = {
         "Fully responsive dynamic layouts built with pure standard web tech"
       ],
       github: "https://github.com/FatmaTahir/Furniture-Ecommerce-Site",
-      demo: null,
+      demo: "https://furniture-ecommerce-site.vercel.app/",
       featured: true
     },
         {
