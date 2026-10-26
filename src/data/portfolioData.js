@@ -12,7 +12,7 @@ export const PORTFOLIO_DATA = {
     github: "https://github.com/FatmaTahir",
     linkedin: "https://www.linkedin.com/in/fatima-tahir-a77182336/",
     upwork: "https://www.upwork.com/freelancers/~012f23979e2d566d86",
-    resumePath: "/Fatima_Tahir_Resume.pdf"
+    resumePath: "/Resume.pdf"
   },
   skills: [
     {
